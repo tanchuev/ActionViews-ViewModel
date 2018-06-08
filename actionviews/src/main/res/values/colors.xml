@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="lightTransparent10">#16FFFFFF</color>
+    <color name="lightTransparent20">#32FFFFFF</color>
+    <color name="lightTransparent30">#54FFFFFF</color>
+    <color name="lightTransparent40">#67FFFFFF</color>
+    <color name="lightTransparent50">#80FFFFFF</color>
+    <color name="lightTransparent60">#99FFFFFF</color>
+    <color name="lightTransparent70">#B3FFFFFF</color>
+    <color name="lightTransparent80">#CCFFFFFF</color>
+    <color name="lightTransparent90">#E6FFFFFF</color>
+
+    <color name="darkTransparent10">#16000000</color>
+    <color name="darkTransparent20">#32000000</color>
+    <color name="darkTransparent25">#40000000</color>
+    <color name="darkTransparent30">#54000000</color>
+    <color name="darkTransparent40">#67000000</color>
+    <color name="darkTransparent50">#80000000</color>
+    <color name="darkTransparent60">#96000000</color>
+    <color name="darkTransparent70">#b3000000</color>
+    <color name="darkTransparent80">#cc000000</color>
+    <color name="darkTransparent90">#e6000000</color>
+
+    <color name="separatorGray">#c8c8c8</color>
+</resources>

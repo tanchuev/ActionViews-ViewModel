@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tanchuev.actionviews.viewmodel.widget.NoInternetView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/noInternetView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:gravity="center"
+    android:visibility="gone"
+    app:buttonText="@string/tryAgain"
+    app:icon="@drawable/ic_no_internet"
+    app:text="@string/errorNoInternet" />

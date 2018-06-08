@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tanchuev.actionviews.viewmodel.widget.EmptyContentView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/emptyContentView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:visibility="gone"
+    app:buttonText="@string/tryAgain"
+    app:icon="@drawable/ic_empty_content"
+    app:text="@string/errorEmptyContent" />
