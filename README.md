@@ -49,6 +49,7 @@ dataRepository.getAll()
 Если вы хотите использовать кастомное поведение
 ### Что делать, если мне не подходит базовое поведение и я хочу использовать свое?
 ### Что делать, если мой Activity/Fragment/ViewModel наследуется от класса, который я не могу изменить?
+Тогда вы можете просто скопировать код [ActionsActivity](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt) или [ActionsFragment](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt) и создать необходимый класс руками
 ### Что делать, если я хочу добавить свой тип ActionView?
 А оно вам надо? Разве данных типов ActionView недостаточно? Если нет, то посмотрите исходные коды на примере LoadingView, где она используется, как с ней работать и сделайте тоже самое.
 ### Как создать свою реализацию ActionView?
