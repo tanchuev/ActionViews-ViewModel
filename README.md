@@ -6,7 +6,7 @@
 - ErrorView (любая view, которая отображает ошибки)
 - ContentView (любая view, которая отображает данные)
 
-Данная библиотека расчитана на тех, кто использует **Kotlin**, **RxJava|RxKotlin 2** и **ViewModel** из **Android Architecture Components**
+Данная библиотека расчитана на тех, кто использует **Kotlin**, **RxJava 2|RxKotlin 2** и **ViewModel** из **Android Architecture Components**
 
 Все логики отображения и скрытия ActionViews уже написаны за вас, вам остается только пользоваться библиотекой!
 
