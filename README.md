@@ -30,7 +30,7 @@
 - [Использовать предложенные реализации ActionViews](CompletedActionViews) или [создать свою реализацию ActionView](CreateCustomActionView)
 - Добавить их в layout в котором они будут использоваться: **привести примеры кодом и вставить ссылку с описанием того, что для дефолтных ActionView надо использовать строго заданные ID**
 - Если вам надо получить доступ к одной из ActionView внутри вашего Activity/Fragment, то вы можете сделать это
-- - через import с заменой имени:  
+- - через import с заменой имени, если вы используете kotlin-android-extensions:  
 `import kotlinx.android.synthetic.main.fr_gifts.contentView as recyclerView`**тут вопрос будет ли это работать с библиотекой? если нет, то написать о баге в kotlinx**  
 - - или без замены имени просто использовать переменные:  
 `contentActionView`  
