@@ -12,10 +12,10 @@
 
 ## Как пользоваться?
 В библиотеке есть стандартные поведения для ActionViews. **ActionView** - любая View, которая реагирует на какое-то действие. В библиотеке описаны 5 базовых типов ActionView: 
-- LoadingView - отображение загрузки
-- NoInternetView - отображение отсутствия соединения с сетью
-- EmptyContentView - отображение отсутствия данных, хотя они должны быть
-- ErrorView - отображение ошибки
+- [LoadingView]- отображение загрузки
+- [NoInternetView] - отображение отсутствия соединения с сетью
+- [EmptyContentView] - отображение отсутствия данных, хотя они должны быть
+- [ErrorView] - отображение ошибки
 - ContentView - отображение содержимого
 
 **Базовое поведение** - логики скрытия и показа ActionView в строго заданные моменты. Подробнее с базовым поведением вы можете ознакомиться [тут](BasicLogics).
@@ -90,4 +90,7 @@ dataRepository.getAll()
 [ActionsActivity]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt>
 [ActionsFragment]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt>
 [ActionsViewModel]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/viewmodel/ActionsViewModel.kt>
-
+[LoadingView]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/view/LoadingView.kt>
+[NoInternetView]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/view/NoInternetView.kt>
+[EmptyContentView]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/view/EmptyContentView.kt>
+[ErrorView]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/view/ErrorView.kt>
