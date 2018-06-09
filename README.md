@@ -8,7 +8,7 @@
 
 Данная библиотека расчитана на тех, кто использует **Kotlin**, **RxJava|RxKotlin 2** и **ViewModel** из **Android Architecture Components**
 
-Все логики отображения ActionViews уже написаны за вас, вам остается только пользоваться библиотекой! Но если базовых логик вам будет недостаточно - вы можете легко дописать их сами под ваши нужды.
+Все логики отображения и скрытия ActionViews уже написаны за вас, вам остается только пользоваться библиотекой!
 
 ## Как пользоваться?
 В библиотеке есть стандартные поведения для ActionViews. **ActionView** - любая View, которая реагирует на какое-то действие. В нашем случае это: 
@@ -21,13 +21,23 @@
 **Базовое поведение** - логики скрытия и показа ActionView в строго заданные моменты. Подробнее с базовым поведением вы можете ознакомиться тут: [rus](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5).
 
 Чтобы использовать базовое поведение вам достаточно сделать несколько шагов:
-- Унаследовать ваши Activity/Fragment от ActionsActivity/ActionsFragment **вставить ссылки на классы**
-- Унаследовать вашу ViewModel от ActionsViewModel **вставить ссылку на класс**
+- Унаследовать ваши Activity/Fragment от [ActionsActivity](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt)/[ActionsFragment](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt):  
+`abstract class BaseActivity : ActionsActivity()`  
+`abstract class BaseFragment : ActionsFragment()`  
+- Унаследовать вашу ViewModel от [ActionsViewModel](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/viewmodel/ActionsViewModel.kt):  
+`abstract class BaseViewModel constructor() : ActionsViewModel()`  
 - Использовать предложенные реализации ActionViews **вставить ссылку на описание готовых ActionViews и как ими пользоваться** или создать свою **вставить ссылку на гайд по созданию своего CustomActionView с описанием того почему и зачем это надо**
 - Добавить их в layout в котором они будут использоваться: **привести примеры кодом и вставить ссылку с описанием того, что для дефолтных ActionView**
 - Если вам надо получить доступ к одной из ActionView внутри вашего Activity/Fragment, то вы можете сделать это через import с заменой имени: или без замены имени:
-- Добавить .withActionViews в ваш rx-поток: **вставить пример кода**
-
+- Добавить .withActionViews в ваш rx-поток: 
+sh ```
+dataRepository.getAll()
+    .withActionViews(this)
+    .execute({
+        data.value = it
+        isContentEmpty.value = gifts.value!!.isEmpty()
+    })
+```
 Эти действия могут показаться сложными, но как показывает практика, для своего проекта вы сделаете это один раз, а дальше просто будете использовать данный механизм.
 
 ## FAQ
