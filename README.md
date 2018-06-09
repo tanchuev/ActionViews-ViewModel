@@ -32,12 +32,7 @@
 - Если вам надо получить доступ к одной из ActionView внутри вашего Activity/Fragment, то вы можете сделать это
 - - через import с заменой имени, если вы используете kotlin-android-extensions:  
 `import kotlinx.android.synthetic.main.fr_gifts.contentView as recyclerView`**тут вопрос будет ли это работать с библиотекой? если нет, то написать о баге в kotlinx**  
-- - через переменные(они проинициализированы в ActionsActivity/ActionsFragment):  
-`contentActionView`  
-`loadingActionView`  
-`noInternetActionView`  
-`emptyContentActionView`  
-`errorActionView`  
+- - через переменные(они проинициализированы в ActionsActivity/ActionsFragment): `contentActionView`, `loadingActionView`, `noInternetActionView`, `emptyContentActionView`, `errorActionView`  
 При использовании данного способа, сейчас не представляется возможности изменить название переменных. Если у вас есть предложения, как это сделать, буду рад выслушать.
 - Добавить `.withActionViews` в ваш rx-поток: 
 ```sh
