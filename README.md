@@ -27,9 +27,19 @@
 `abstract class BaseFragment : ActionsFragment()`  
 - Унаследовать вашу ViewModel от [ActionsViewModel]:  
 `abstract class BaseViewModel constructor() : ActionsViewModel()`  
-- Использовать предложенные реализации ActionViews **вставить ссылку на описание готовых ActionViews и как ими пользоваться** или создать свою **вставить ссылку на гайд по созданию своего CustomActionView с описанием того почему и зачем это надо**
-- Добавить их в layout в котором они будут использоваться: **привести примеры кодом и вставить ссылку с описанием того, что для дефолтных ActionView**
-- Если вам надо получить доступ к одной из ActionView внутри вашего Activity/Fragment, то вы можете сделать это через import с заменой имени: или без замены имени:
+- [Использовать предложенные реализации ActionViews](CompletedActionViews) или [создать свою реализацию ActionView](CreateCustomActionView)
+- Добавить их в layout в котором они будут использоваться: **привести примеры кодом и вставить ссылку с описанием того, что для дефолтных ActionView надо использовать строго заданные ID**
+- Если вам надо получить доступ к одной из ActionView внутри вашего Activity/Fragment, то вы можете сделать это через import с заменой имени:  
+`import kotlinx.android.synthetic.main.fr_gifts.contentView as recyclerView`**тут вопрос будет ли это работать с библиотекой? если нет, то написать о баге в kotlinx**  
+или без замены имени просто использовать переменные:
+```sh
+contentActionView
+loadingActionView
+noInternetActionView
+emptyContentActionView
+errorActionView
+```
+При использовании данного способа, сейчас не представляется возможности изменить название переменных. Если у вас есть предложения, как это сделать, буду рад выслушать.
 - Добавить `.withActionViews` в ваш rx-поток: 
 ```sh
 dataRepository.getAll()
@@ -51,6 +61,9 @@ dataRepository.getAll()
 **В чем минусы от использования такого способа?**
 - Вы должны инициализировать ваши ActionViews сами
 - Вы должны подписываться на обновления руками, также как это сделано в [ActionsActivity]/[ActionsFragment]
+
+## Что ещё умеет библиотека?
+В библиотеке есть несколько полезных extension-методов, которые упростят разработку. Найти их вы можете [здесь](ссылка на доку с описанием вспомогательных методов).
 
 ## FAQ
 ### Я использую kotlinx и у меня показывается **такая ошибка**, что делать?
@@ -87,6 +100,11 @@ dataRepository.getAll()
 # Как это работает?
 
 [BasicLogics]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5>
+[CustomLogics]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%9A%D0%B0%D1%81%D1%82%D0%BE%D0%BC%D0%BD%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5>
+[BasicTypes]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D1%8B%D0%B5-%D1%82%D0%B8%D0%BF%D1%8B-ActionViews>
+[SupportMethods]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B>
+[CompletedActionViews]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%93%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-ActionViews>
+[CreateCustomActionView]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%81%D0%B2%D0%BE%D0%B5%D0%B9-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-ActionView>
 [ActionsActivity]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt>
 [ActionsFragment]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt>
 [ActionsViewModel]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/viewmodel/ActionsViewModel.kt>
