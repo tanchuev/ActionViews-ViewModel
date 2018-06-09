@@ -21,7 +21,7 @@
 **Базовое поведение** - логики скрытия и показа ActionView в строго заданные моменты. Подробнее с базовым поведением вы можете ознакомиться тут: [rus](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5).
 
 Чтобы начать использовать библиотеку вам достаточно сделать несколько шагов:
-- Добавить dependency в gradle: `implementation \`ссылка на зависимость в репозитории\``
+- Добавить dependency в gradle: `implementation ``ссылка на зависимость в репозитории```
 - Унаследовать ваши Activity/Fragment от [ActionsActivity](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt)/[ActionsFragment](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt):  
 `abstract class BaseActivity : ActionsActivity()`  
 `abstract class BaseFragment : ActionsFragment()`  
