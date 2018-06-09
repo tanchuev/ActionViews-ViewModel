@@ -18,14 +18,18 @@
 - ErrorView - отображение ошибки
 - ContentView - отображение содержимого
 
-**Базовое поведение** - логики скрытия и показа ActionView в строго заданные моменты. Подробнее с базовым поведением вы можете ознакомиться тут: [rus](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5).
+**Базовое поведение** - логики скрытия и показа ActionView в строго заданные моменты. Подробнее с базовым поведением вы можете ознакомиться [тут](BasicLogics).
+
+Другой вариант инициализации ActionViews.
+Вместо наследования от [ActionsActivity]/[ActionsFragment] можно сделать
+
 
 Чтобы начать использовать библиотеку вам достаточно сделать несколько шагов:
 - Добавить dependency в gradle: ```implementation `ссылка на зависимость в репозитории` ```
-- Унаследовать ваши Activity/Fragment от [ActionsActivity](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt)/[ActionsFragment](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt):  
+- Унаследовать ваши Activity/Fragment от [ActionsActivity]/[ActionsFragment]:  
 `abstract class BaseActivity : ActionsActivity()`  
 `abstract class BaseFragment : ActionsFragment()`  
-- Унаследовать вашу ViewModel от [ActionsViewModel](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/viewmodel/ActionsViewModel.kt):  
+- Унаследовать вашу ViewModel от [ActionsViewModel]:  
 `abstract class BaseViewModel constructor() : ActionsViewModel()`  
 - Использовать предложенные реализации ActionViews **вставить ссылку на описание готовых ActionViews и как ими пользоваться** или создать свою **вставить ссылку на гайд по созданию своего CustomActionView с описанием того почему и зачем это надо**
 - Добавить их в layout в котором они будут использоваться: **привести примеры кодом и вставить ссылку с описанием того, что для дефолтных ActionView**
@@ -50,7 +54,7 @@ dataRepository.getAll()
 Если вы хотите использовать кастомное поведение
 ### Что делать, если мне не подходит базовое поведение и я хочу использовать свое?
 ### Что делать, если я не могу наследоваться от ActionsActivity/ActionsFragment/ActionsViewModel? т.к. моя Activity/Fragment/ViewModel наследуется от базового класса, который я не могу изменить?
-Тогда вы можете просто скопировать код [ActionsActivity](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt) или [ActionsFragment](https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt) и создать необходимый класс руками
+Тогда вы можете просто скопировать код [ActionsActivity] или [ActionsFragment] и создать необходимый класс руками
 ### Что делать, если я хочу добавить свой тип ActionView?
 А оно вам надо? Разве данных типов ActionView недостаточно? Если нет, то посмотрите исходные коды на примере LoadingView, где она используется, как с ней работать и сделайте тоже самое.
 ### Как создать свою реализацию ActionView?
@@ -74,4 +78,8 @@ dataRepository.getAll()
 - **показать, что надо наследоваться от ActionViews-классов, Fragment, Activity, ViewModel - в начало документа**
 
 # Как это работает?
+
+[BasicLogics]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5>
+[ActionsActivity]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt>
+[ActionsFragment]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt>
 
