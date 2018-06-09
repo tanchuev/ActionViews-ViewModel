@@ -18,7 +18,7 @@
 - Error - отображение ошибки
 - Content - отображение содержимого
 
-**Базовое поведение** - логики скрытия и показа ActionView в строго заданные моменты. Подробнее с базовым поведением вы можете ознакомиться **тут, вставить ссылку**.
+**Базовое поведение** - логики скрытия и показа ActionView в строго заданные моменты. Подробнее с базовым поведением вы можете ознакомиться тут: [rus](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5).
 
 Чтобы использовать базовое поведение вам достаточно сделать несколько шагов:
 - Унаследовать ваши Activity/Fragment от ActionsActivity/ActionsFragment **вставить ссылки на классы**
@@ -49,51 +49,6 @@
 
 **Описать все типы интерфейсов ActionView, типа TopLoadingView, SwipeRefreshLayout в отдельном документе, описать когда какой использовать и зачем они нужны, как добавлять свой тип ActionView. 
 Описать как работать с каждой из ActionView**, например, для EmptyContent нужно устанавливать isContentEmpty
-
-
-
-### Базовое поведение ActionViews - **вынести в отдельный документ, указать ссылку на ActionViewsExtensions**
-#### LoadingView
-***Отображается когда:*** Rx-поток начал свою работу  
-***Скрывается когда:*** Rx-поток завершил свою работу  
-***Когда LoadingView отображается, то происходит следущее:***  
-```sh 
-when (this) {
-    is SwipeRefreshLayout -> {
-        setVisibility(View.VISIBLE, this)
-        view.post {
-            this.isRefreshing = true
-        }
-    }
-    is TopLoadingView -> {
-        setVisibility(View.GONE, contentView)
-        setVisibility(View.VISIBLE, view)
-    }
-    else -> {
-        setVisibility(View.VISIBLE, view)
-    }
-}
-```
-***Когда LoadingView скрывается, то происходит следущее:***
-```sh 
-when (this) {
-    null -> throw NullPointerException("LoadingView is null")
-    is SwipeRefreshLayout -> this.post {
-        this.isRefreshing = false
-    }
-    is TopLoadingView -> {
-        setVisibility(View.VISIBLE, contentView)
-        setVisibility(View.GONE, view)
-    }
-    else -> {
-        setVisibility(View.GONE, view)
-    }
-}
-```
-##### NoInternetView
-##### EmptyContentView
-##### ErrorView
-##### ContentView
 
 
 Чтобы использовать базовое поведение вам достаточно сделать несколько простых шагов:
