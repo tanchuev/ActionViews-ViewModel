@@ -1,5 +1,6 @@
 package com.tanchuev.actionviews.viewmodel.view
 
+import android.support.v4.widget.SwipeRefreshLayout
 import android.view.View
 import com.tanchuev.actionviews.viewmodel.utils.setVisibility
 
@@ -11,8 +12,9 @@ interface NoInternetView {
 
     fun setVisibility(visible: Boolean, contentView: View) {
         if (visible) {
-            //скрывают все остальные view(ActionViews + contentActionView)
-            setVisibility(View.GONE, contentView)
+            if (contentView !is SwipeRefreshLayout) {
+                setVisibility(View.GONE, contentView)
+            }
             setVisibility(View.VISIBLE, this as View)
         } else {
             setVisibility(View.VISIBLE, contentView)

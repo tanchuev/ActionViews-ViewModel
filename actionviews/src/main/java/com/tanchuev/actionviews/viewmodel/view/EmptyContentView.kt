@@ -1,5 +1,6 @@
 package com.tanchuev.actionviews.viewmodel.view
 
+import android.support.v4.widget.SwipeRefreshLayout
 import android.view.View
 import com.tanchuev.actionviews.viewmodel.utils.setVisibility
 
@@ -14,7 +15,9 @@ interface EmptyContentView {
     fun setVisibility(visible: Boolean, contentView: View) {
         val view = this as View
         if (visible && isContentEmpty) {
-            setVisibility(View.GONE, contentView)
+            if (contentView !is SwipeRefreshLayout) {
+                setVisibility(View.GONE, contentView)
+            }
             setVisibility(View.VISIBLE, view)
         } else {
             setVisibility(View.GONE, view)

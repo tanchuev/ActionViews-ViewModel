@@ -22,14 +22,14 @@ class ProgressBar : android.widget.ProgressBar, TopLoadingView {
 
         try {
             indeterminateDrawable.setColorFilter(
-                a.getColor(
-                    R.styleable.ProgressBar_progressColor,
-                    ContextCompat.getColor(
-                        context,
-                        R.color.lightTransparent50
-                    )
-                ),
-                PorterDuff.Mode.MULTIPLY
+                    a.getColor(
+                            R.styleable.ProgressBar_progressColor,
+                            ContextCompat.getColor(
+                                    context,
+                                    R.color.lightTransparent50
+                            )
+                    ),
+                    PorterDuff.Mode.MULTIPLY
             )
         } finally {
             a.recycle()
