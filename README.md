@@ -108,7 +108,7 @@ dataRepository.getAll()
 Эти действия могут показаться сложными, но как показывает практика, для своего проекта вы сделаете это один раз, а дальше просто будете использовать данный механизм.
 
 ## Другой вариант использования ActionViews
-* Вы можете отказаться от наследования [ActionsActivity]/[ActionsFragment], но все равно вы будете обязаны наследовать вашу ViewModel от ActionsViewModel
+* Вы можете отказаться от наследования [ActionsActivity]/[ActionsFragment], но все равно вы будете обязаны наследовать вашу ViewModel от [ActionsViewModel]
 * В вашей Activity/Fragment вы должны проинициализировать ваши ActionViews и подписаться на обновления тех ActionView, которые вам нужны, также как это сделано в [ActionsActivity]/[ActionsFragment]
 
 **В чем плюсы от использования такого способа?**  
@@ -153,9 +153,6 @@ dataRepository.getAll()
 * **показать, какие вспомогательные классы и методы есть, описать их - в отдельный документ**
 * **показать как использовать и добавлять кастомные логики - в отдельный документ**
 * **показать, что надо наследоваться от ActionViews-классов, Fragment, Activity, ViewModel - в начало документа**
-
-# Как это работает?
-
 
 [ActionsActivity]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt>
 [ActionsFragment]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt>
