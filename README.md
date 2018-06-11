@@ -120,7 +120,7 @@ dataRepository.getAll()
 * Вы избавляетесь от строго заданных id для ActionViews и можете использовать абсолютно любые
 
 **В чем минусы от использования такого способа?**
-* Вы должны инициализировать ваши ActionViews сами, но это можно сделать с помощью kotlin-android-extensions или ButterKnife или, также как это сделано в [ActionsActivity]/[ActionsFragment]
+* Вы должны инициализировать ваши ActionViews сами, но это можно сделать с помощью [kotlin-android-extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html) или [ButterKnife](http://jakewharton.github.io/butterknife/) или, также как это сделано в [ActionsActivity]/[ActionsFragment]
 * Вы должны подписываться на обновления руками, также как это сделано в [ActionsActivity]/[ActionsFragment]
 
 ## Более глубокое использование библиотеки
