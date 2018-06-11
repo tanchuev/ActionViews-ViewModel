@@ -119,30 +119,26 @@ dataRepository.getAll()
 * Вы должны подписываться на обновления руками, также как это сделано в [ActionsActivity]/[ActionsFragment]
 
 ## Более глубокое использование библиотеки
-* Базовое поведение и типы ActionViews
-* Использование готовых реализаций ActionViews
-* Кастомное поведение ActionViews
-* Использование нескольких ActionView одинакового типа на одном экране
-* Создание собственной реализации ActionView
-* Удобный способ добавления NoInternetView/EmptyContentView/ProgressBar в layout.
-* Вспомогательные методы
-
-## Что ещё умеет библиотека?
-В библиотеке есть несколько полезных extension-методов, которые упростят разработку. Найти их вы можете [здесь][SupportMethods].
+* [Базовое поведение и типы ActionViews](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews)
+* [Использование готовых реализаций ActionViews](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9-ActionViews)
+* [Создание собственной реализации ActionView](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-CustomActionView)
+* [Кастомное поведение ActionViews](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%9A%D0%B0%D1%81%D1%82%D0%BE%D0%BC%D0%BD%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5)
+* [Использование нескольких ActionView одинакового типа на одном экране](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-ActionView-%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D1%82%D0%B8%D0%BF%D0%B0-%D0%BD%D0%B0-%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B5)
+* [Удобный способ добавления ActionView в layout](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%A3%D0%B4%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-ActionView-%D0%B2-layout)
+* [Вспомогательные методы](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B)
 
 ## FAQ
 ### Мне надоело каждый раз добавлять одну и ту же реализацию NoInternetView/EmptyContentView/... в layout. Что делать?
-Показать удобный способ с помощью `include layout`
+[Удобный способ добавления ActionView в layout](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%A3%D0%B4%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-ActionView-%D0%B2-layout)
 ### Я использую kotlinx и у меня показывается **такая ошибка**, что делать?
 Если вы используете реализации ActionViews, которые содержатся в библиотеке, то просто используйте ActionView отсюда: Если у вас две и более ActionView одинакового типа на экране, то используйте вспомогательный метод для инициализации View, который я сделал для вас: 
 ### Что делать, если у меня несколько ActionView одинакового типа на одном экране? 
-Описать, что если у вас на экране больше одной ActionView одного и того же типа, то:
-Показать с базовым поведением, оставить ссылку на кастомное поведение
+[Использование нескольких ActionView одинакового типа на одном экране](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-ActionView-%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D1%82%D0%B8%D0%BF%D0%B0-%D0%BD%D0%B0-%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B5)
 ### Что делать, если мне не подходит базовое поведение и я хочу использовать свое?
 ### Что делать, если я не могу наследоваться от ActionsActivity/ActionsFragment/ActionsViewModel? т.к. моя Activity/Fragment/ViewModel наследуется от базового класса, который я не могу изменить?
 Тогда вы можете просто скопировать код [ActionsActivity] или [ActionsFragment] и создать необходимый класс руками
 ### Что делать, если я хочу добавить свой тип ActionView?
-А оно вам надо? Разве данных типов ActionView недостаточно? Если нет, то посмотрите исходные коды на примере LoadingView, где она используется, как с ней работать и сделайте тоже самое.
+А оно вам надо? Разве данных типов ActionView недостаточно? Если нет, то посмотрите исходные коды на примере [LoadingView], где она используется, как с ней работать и сделайте тоже самое.
 ###
 
 [ActionsActivity]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt>
