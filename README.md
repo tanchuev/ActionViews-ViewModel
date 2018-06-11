@@ -31,14 +31,14 @@
 `abstract class BaseFragment : ActionsFragment()`  
 * Унаследовать вашу ViewModel от [ActionsViewModel]:  
 `abstract class BaseViewModel constructor() : ActionsViewModel()`  
-* [Использовать предложенные реализации ActionViews][CompletedActionViews] или [создать свою реализацию ActionView][CreateCustomActionView]
-* Добавить их в layout в котором они будут использоваться: **привести примеры кодом и вставить ссылку с описанием того, что для дефолтных ActionView надо использовать строго заданные ID**
+* [Использовать готовые реализации ActionViews](%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9-ActionViews) или [создать свою реализацию ActionView][CreateCustomActionView]
+* Добавить ActionViews в layout **со строго заданными id**, в котором они будут использоваться. Примеры можете посмотреть [тут]().
 * Если вам надо получить доступ к одной из ActionView внутри вашего Activity/Fragment, то вы можете сделать это
     * через import с заменой имени, если вы используете kotlin-android-extensions:  
-`import kotlinx.android.synthetic.main.fr_gifts.contentView as recyclerView`**тут вопрос будет ли это работать с библиотекой? если нет, то написать о баге в kotlinx**  
+`import kotlinx.android.synthetic.main.fr_gifts.contentView as recyclerView`  
     * через переменные(они проинициализированы в ActionsActivity/ActionsFragment): `contentActionView`, `loadingActionView`, `noInternetActionView`, `emptyContentActionView`, `errorActionView`  
 При использовании данного способа, сейчас не представляется возможности изменить название переменных. Если у вас есть предложения, как это сделать, буду рад выслушать.
-* Добавить `.withActionViews` в ваш rx-поток: 
+* Добавить `.withActionViews(viewModel: ActionsViewModel)` в ваш rx-поток: 
 ```kotlin
 dataRepository.getAll()
     .withActionViews(this)
