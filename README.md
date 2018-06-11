@@ -6,6 +6,13 @@
 * Отображает отсутствие соединения с сетью
 * Отображает отсутствие данных
 * Отображает какие-либо другие ошибки
+* [Kotlin](https://kotlinlang.org/)
+* [RxJava 2](https://github.com/ReactiveX/RxJava) или [RxKotlin 2](https://github.com/ReactiveX/RxKotlin)
+* [ViewModel из Android Architecture Components](https://developer.android.com/topic/libraries/architecture/viewmodel)
+
+Если ваше приложение использует MVP - то есть (ActionViews-MVP)[ссылка на будущую библиотеку]
+Если ваше приложение использует kotlin-couroutines и MVVM - то есть (ActionViews-ViewModel-Coroutines)[ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины]
+Если ваше приложение использует kotlin-couroutines и MVP - то есть (ActionViews-MVP-Coroutines)[ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины]
 
 То данная библиотека избавит вас от boilerplate-кода и автоматизирует показ и скрытие View для отображения:
 * Содержимого, данных - [ContentView]  
@@ -13,8 +20,6 @@
 * Отсутствия соединения с сетью - [NoInternetView]  
 * Отсутствия данных - [EmptyContentView]  
 * Ошибок - [ErrorView]  
-
-Данная библиотека расчитана на тех, кто использует **Kotlin**, **RxJava 2|RxKotlin 2** и **ViewModel** из **Android Architecture Components**
 
 Все логики отображения и скрытия ActionViews уже написаны за вас, вам остается только пользоваться библиотекой!
 
