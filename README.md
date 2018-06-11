@@ -6,9 +6,9 @@
 * Отображает отсутствие соединения с сетью
 * Отображает отсутствие данных
 * Отображает какие-либо другие ошибки
-* [Kotlin](https://kotlinlang.org/)
-* [RxJava 2](https://github.com/ReactiveX/RxJava) или [RxKotlin 2](https://github.com/ReactiveX/RxKotlin)
-* [ViewModel из Android Architecture Components](https://developer.android.com/topic/libraries/architecture/viewmodel)
+* Использует [Kotlin](https://kotlinlang.org/)
+* Использует [RxJava 2](https://github.com/ReactiveX/RxJava) или [RxKotlin 2](https://github.com/ReactiveX/RxKotlin)
+* Использует [ViewModel из Android Architecture Components](https://developer.android.com/topic/libraries/architecture/viewmodel)
 
 Если ваше приложение использует MVP - то есть (ActionViews-MVP)[ссылка на будущую библиотеку]
 Если ваше приложение использует kotlin-couroutines и MVVM - то есть (ActionViews-ViewModel-Coroutines)[ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины]
