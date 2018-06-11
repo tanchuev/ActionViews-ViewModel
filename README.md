@@ -85,7 +85,7 @@
     <!-- also you can add some views outside ContentView -->
 </FrameLayout>
 ```
-* **и не забыть указать им строго заданные id**:
+* **Не забыть указать им строго заданные id**:
   * [ContentView] - `contentView`
   * [LoadingView] - `loadingView`
   * [NoInternetView] - `noInternetView`
