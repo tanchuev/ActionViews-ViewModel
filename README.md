@@ -140,8 +140,8 @@ dataRepository.getAll()
 ### Что делать, если у меня несколько ActionView одинакового типа на одном экране? 
 [Использование нескольких ActionView одинакового типа на одном экране](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-ActionView-%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D1%82%D0%B8%D0%BF%D0%B0-%D0%BD%D0%B0-%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B5)
 ### Что делать, если мне не подходит базовое поведение и я хочу использовать свое?
-### Что делать, если я не могу наследоваться от ActionsActivity/ActionsFragment/ActionsViewModel? т.к. моя Activity/Fragment/ViewModel наследуется от базового класса, который я не могу изменить?
-Тогда вы можете просто скопировать код [ActionsActivity] или [ActionsFragment] и создать необходимый класс руками
+### Моя Activity/Fragment/ViewModel наследуется от базового класса, который я не могу изменить. Как добавить наследование от ActionsActivity/ActionsFragment/ActionsViewModel?
+Тогда вы можете просто скопировать код [ActionsActivity] или [ActionsFragment] или [ActionsFragment] и создать необходимый класс руками
 ### Что делать, если я хочу добавить свой тип ActionView?
 А оно вам надо? Разве данных типов ActionView недостаточно? Если нет, то посмотрите исходные коды на примере [LoadingView], где она используется, как с ней работать и сделайте тоже самое.
 ###
