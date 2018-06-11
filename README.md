@@ -145,15 +145,6 @@ dataRepository.getAll()
 А оно вам надо? Разве данных типов ActionView недостаточно? Если нет, то посмотрите исходные коды на примере LoadingView, где она используется, как с ней работать и сделайте тоже самое.
 ###
 
-Чтобы использовать базовое поведение вам достаточно сделать несколько простых шагов:
-* создать кастомные view или использовать те, которые я уже создал для вас - **показать, что некоторые кастомные view я уже сделал за них. показать какие есть. показать как создавать кастомные view - в отдельный документ**
-* добавить их в layout, в котором они будут использоваться:
-* проинициализировать ActionView в коде - **обратить внимание на баг с kotlinx, показать, что дефолтные actionView инициализировать не надо, их надо лишь получить и если надо, то заменить имя в импорте**
-* и добавить .withActionViews в ваш rx поток: **показать пример кодом**
-* **показать, какие вспомогательные классы и методы есть, описать их - в отдельный документ**
-* **показать как использовать и добавлять кастомные логики - в отдельный документ**
-* **показать, что надо наследоваться от ActionViews-классов, Fragment, Activity, ViewModel - в начало документа**
-
 [ActionsActivity]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt>
 [ActionsFragment]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt>
 [ActionsViewModel]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/viewmodel/ActionsViewModel.kt>
