@@ -23,7 +23,7 @@
 
 **ActionView** - любая View, которая реагирует на какое-то действие. В библиотеке описаны несколько типов ActionView и их базовое поведение.  
 
-Подробнее с базовым поведением и типами ActionViews вы можете ознакомиться [тут](wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews).
+Подробнее с базовым поведением и типами ActionViews вы можете ознакомиться [тут](../wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews).
 
 ## Как пользоваться?
 Чтобы начать использовать библиотеку вам достаточно сделать несколько шагов:
@@ -33,7 +33,7 @@
 `abstract class BaseFragment : ActionsFragment()`  
 * Унаследовать вашу ViewModel от [ActionsViewModel]:  
 `abstract class BaseViewModel constructor() : ActionsViewModel()`  
-* [Использовать готовые реализации ActionViews](wiki/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9-ActionViews) или [создать свою реализацию ActionView](wiki/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-CustomActionView)
+* [Использовать готовые реализации ActionViews](../wiki/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D1%85-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9-ActionViews) или [создать свою реализацию ActionView](../wiki/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-CustomActionView)
 * Добавить ActionViews в layout:
 ```xml
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
