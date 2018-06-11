@@ -1,25 +1,29 @@
-## Введение
-Эта библиотека избавит вас от boilerplate-кода, если вы используете такие View как:
-* LoadingView (любая view, которая отображает загрузку)
-* NoInternetView (любая view, которая отображает отсутствие соединения с сетью)
-* EmptyContentView (любая view, которая отображает отсутствие данных)
-* ErrorView (любая view, которая отображает ошибки)
-* ContentView (любая view, которая отображает данные)
+## Описание
+Эта библиотека избавит вас от boilerplate-кода, если ваше приложение:
+* Работает с сетью, БД
+* Отображает данные
+* Отображает индикаторы загрузки
+* Отображает отсутствие соединения с сетью
+* Отображает отсутствие данных
+* Отображает какие-либо другие ошибки
+
+Данная библиотека избавляет вас от boilerplate-кода и автоматизирует показ и скрытие View для отображения:
+* Содержимого - [ContentView]  
+* Загрузки - [LoadingView]  
+* Отсутствия соединения с сетью - [NoInternetView]  
+* Отсутствия данных - [EmptyContentView]  
+* Ошибок - [ErrorView]  
 
 Данная библиотека расчитана на тех, кто использует **Kotlin**, **RxJava 2|RxKotlin 2** и **ViewModel** из **Android Architecture Components**
 
 Все логики отображения и скрытия ActionViews уже написаны за вас, вам остается только пользоваться библиотекой!
 
+## Термины
+**Базовое поведение** или **Стандартное поведение** - логики скрытия и показа ActionView в строго заданные моменты.  
+**ActionView** - любая View, которая реагирует на какое-то действие. В библиотеке описаны несколько базовых типов ActionView и их базовое поведение.  
+Подробнее с базовым поведением и типами ActionViews вы можете ознакомиться [тут](%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews).
+
 ## Как пользоваться?
-В библиотеке есть стандартные поведения для ActionViews. **ActionView** - любая View, которая реагирует на какое-то действие. В библиотеке описаны 5 базовых типов ActionView: 
-* [LoadingView] - отображение загрузки
-* [NoInternetView] - отображение отсутствия соединения с сетью
-* [EmptyContentView] - отображение отсутствия данных, хотя они должны быть
-* [ErrorView] - отображение ошибки
-* ContentView - отображение содержимого
-
-**Базовое поведение** - логики скрытия и показа ActionView в строго заданные моменты. Подробнее с базовым поведением вы можете ознакомиться [тут][BasicLogics].
-
 Чтобы начать использовать библиотеку вам достаточно сделать несколько шагов:
 * Добавить dependency в gradle: ```implementation `ссылка на зависимость в репозитории` ```
 * Унаследовать ваши Activity/Fragment от [ActionsActivity]/[ActionsFragment]:  
@@ -102,16 +106,12 @@ dataRepository.getAll()
 
 # Как это работает?
 
-[BasicLogics]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5>
-[CustomLogics]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%9A%D0%B0%D1%81%D1%82%D0%BE%D0%BC%D0%BD%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5>
-[BasicTypes]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D1%8B%D0%B5-%D1%82%D0%B8%D0%BF%D1%8B-ActionViews>
-[SupportMethods]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B>
-[CompletedActionViews]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%93%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%D0%B5-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-ActionViews>
-[CreateCustomActionView]: <https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%81%D0%B2%D0%BE%D0%B5%D0%B9-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-ActionView>
+
 [ActionsActivity]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt>
 [ActionsFragment]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt>
 [ActionsViewModel]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/viewmodel/ActionsViewModel.kt>
-[LoadingView]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/view/LoadingView.kt>
-[NoInternetView]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/view/NoInternetView.kt>
-[EmptyContentView]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/view/EmptyContentView.kt>
-[ErrorView]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/view/ErrorView.kt>
+[LoadingView]: <%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews#loadingview>
+[NoInternetView]: <%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews#nointernetview>
+[EmptyContentView]: <%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews#emptycontentview>
+[ErrorView]: <%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews#errorview>
+[ContentView]: <D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews#contentview>
