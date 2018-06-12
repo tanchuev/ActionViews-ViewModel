@@ -1,6 +1,5 @@
 package com.tanchuev.actionviews.viewmodel.view
 
-import android.content.Context
 import android.support.annotation.StringRes
 import com.tanchuev.actionviews.viewmodel.R
 import com.tanchuev.actionviews.viewmodel.utils.isNullOrEmpty
@@ -12,6 +11,7 @@ interface ErrorView {
     fun showError(error: Throwable) {
         if (error.message.isNullOrEmpty()) showError(R.string.errorUnexpected) else showError(error.message!!)
     }
+
     fun showError(@StringRes errorMessageId: Int)
     fun showError(errorMessage: String)
 
