@@ -1,5 +1,6 @@
 package com.tanchuev.actionviews.viewmodel.view
 
+import android.content.Context
 import android.support.annotation.StringRes
 import com.tanchuev.actionviews.viewmodel.R
 import com.tanchuev.actionviews.viewmodel.utils.isNullOrEmpty
@@ -9,9 +10,10 @@ import com.tanchuev.actionviews.viewmodel.utils.isNullOrEmpty
  */
 interface ErrorView {
     fun showError(error: Throwable) {
-        showError(if (error.message.isNullOrEmpty()) R.string.errorUnexpected else null, error.message)
+        if (error.message.isNullOrEmpty()) showError(R.string.errorUnexpected) else showError(error.message!!)
     }
-    fun showError(@StringRes errorMessageId: Int? = null, errorMessage: String? = null)
+    fun showError(@StringRes errorMessageId: Int)
+    fun showError(errorMessage: String)
 
     //метода hide нет, потому, что он не нужен.
     //скрытие view такого типа должно контролироваться на уровне view

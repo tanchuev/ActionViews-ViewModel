@@ -21,8 +21,12 @@ class ToastView(context: Context) : LinearLayout(context), ErrorView {
         inflate(context, R.layout.l_toast_view, this)
     }
 
-    override fun showError(@StringRes errorMessageId: Int?, errorMessage: String?) {
-        tvToast.text = errorMessageId?.toString() ?: context.getString(errorMessage!!.toInt())
+    override fun showError(@StringRes errorMessageId: Int) {
+        showError(context.getString(errorMessageId))
+    }
+
+    override fun showError(errorMessage: String) {
+        tvToast.text = errorMessage
         val toast = Toast(context.applicationContext)
         toast.duration = Toast.LENGTH_LONG
         toast.view = this
