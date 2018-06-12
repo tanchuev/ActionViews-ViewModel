@@ -10,10 +10,6 @@
 * Использует [RxJava 2](https://github.com/ReactiveX/RxJava) или [RxKotlin 2](https://github.com/ReactiveX/RxKotlin)
 * Использует [ViewModel из Android Architecture Components](https://developer.android.com/topic/libraries/architecture/viewmodel)
 
-Если ваше приложение использует MVP - то есть (ActionViews-MVP)[ссылка на будущую библиотеку]
-Если ваше приложение использует kotlin-couroutines и MVVM - то есть (ActionViews-ViewModel-Coroutines)[ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины]
-Если ваше приложение использует kotlin-couroutines и MVP - то есть (ActionViews-MVP-Coroutines)[ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины]
-
 То данная библиотека избавит вас от boilerplate-кода и автоматизирует показ и скрытие View для отображения:
 * Содержимого, данных - [ContentView]  
 * Загрузки - [LoadingView]  
@@ -21,12 +17,16 @@
 * Отсутствия данных - [EmptyContentView]  
 * Ошибок - [ErrorView]  
 
+Если ваше приложение использует MVP - то есть (ActionViews-MVP)[ссылка на будущую библиотеку]  
+Если ваше приложение использует kotlin-couroutines и MVVM - то есть (ActionViews-ViewModel-Coroutines)[ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины]  
+Если ваше приложение использует kotlin-couroutines и MVP - то есть (ActionViews-MVP-Coroutines)[ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины]  
+
 Все логики отображения и скрытия ActionViews уже написаны за вас, вам остается только пользоваться библиотекой!
 
 ## Термины
 **Базовое поведение** или **Стандартное поведение** - логики скрытия и показа ActionView в строго заданные моменты.
 
-**ActionView** - любая View, которая реагирует на какое-то действие. В библиотеке описаны несколько типов ActionView и их базовое поведение.  
+**ActionView** - любая View, которая реагирует на какое-то событие/действие. В библиотеке описано несколько типов ActionView и их базовое поведение.  
 
 Подробнее с базовым поведением и типами ActionViews вы можете ознакомиться [тут](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-ActionViews).
 
@@ -99,8 +99,8 @@
 * Если вам надо получить доступ к одной из ActionView внутри вашего Activity/Fragment, то вы можете сделать это
     * через import с заменой имени, если вы используете [kotlin-android-extensions]:  
 `import kotlinx.android.synthetic.main.fr_gifts.contentView as recyclerView`  
-    * через переменные(они проинициализированы в ActionsActivity/ActionsFragment): `contentActionView`, `loadingActionView`, `noInternetActionView`, `emptyContentActionView`, `errorActionView`  
-При использовании данного способа, сейчас не представляется возможности изменить название переменных. Если у вас есть предложения, как это сделать, буду рад выслушать.
+    * через переменные(они проинициализированы в [ActionsActivity]/[ActionsFragment]): `contentActionView`, `loadingActionView`, `noInternetActionView`, `emptyContentActionView`, `errorActionView`  
+При использовании данного способа, сейчас нет возможности изменить название переменных. Если у вас есть предложения, как это сделать - буду рад выслушать.
 * Добавить `.withActionViews(viewModel: ActionsViewModel)` в ваш rx-поток: 
 ```kotlin
 dataRepository.getAll()
@@ -140,11 +140,14 @@ dataRepository.getAll()
 ### Что делать, если у меня несколько ActionView одинакового типа на одном экране? 
 [Использование нескольких ActionView одинакового типа на одном экране](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-ActionView-%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D1%82%D0%B8%D0%BF%D0%B0-%D0%BD%D0%B0-%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B5)
 ### Что делать, если мне не подходит базовое поведение и я хочу использовать свое?
+[Кастомное поведение](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%9A%D0%B0%D1%81%D1%82%D0%BE%D0%BC%D0%BD%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5)
 ### Моя Activity/Fragment/ViewModel наследуется от базового класса, который я не могу изменить. Как добавить наследование от ActionsActivity/ActionsFragment/ActionsViewModel?
 Тогда вы можете просто скопировать код [ActionsActivity] или [ActionsFragment] или [ActionsFragment] и создать необходимый класс руками
 ### Что делать, если я хочу добавить свой тип ActionView?
 А оно вам надо? Разве данных типов ActionView недостаточно? Если нет, то посмотрите исходные коды на примере [LoadingView], где она используется, как с ней работать и сделайте тоже самое.
-###
+
+## Лизензии
+MIT
 
 [ActionsActivity]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/activity/ActionsActivity.kt>
 [ActionsFragment]: <https://github.com/tanchuev/ActionViews-ViewModel/blob/master/actionviews/src/main/java/com/tanchuev/actionviews/viewmodel/fragment/ActionsFragment.kt>
