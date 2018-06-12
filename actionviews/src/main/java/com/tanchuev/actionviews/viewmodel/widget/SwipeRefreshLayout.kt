@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import com.tanchuev.actionviews.viewmodel.view.LoadingView
 
 /**
- * Created by marat.taychinov
+ * Created by tanchuev
  */
 
 //todo это можно сделать через annotation processor

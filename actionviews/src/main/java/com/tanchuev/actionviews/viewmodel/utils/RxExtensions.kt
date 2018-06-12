@@ -1,17 +1,14 @@
 package com.tanchuev.actionviews.viewmodel.utils
 
+import com.tanchuev.actionviews.viewmodel.rx.observer.*
 import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import com.tanchuev.actionviews.viewmodel.rx.observer.BaseCompletableObserver
-import com.tanchuev.actionviews.viewmodel.rx.observer.BaseObserver
-import com.tanchuev.actionviews.viewmodel.rx.observer.BaseSingleObserver
-import com.tanchuev.actionviews.viewmodel.rx.observer.BaseSubscriber
 
 /**
- * Created by marat.taychinov
+ * Created by tanchuev
  */
 
 private val compositeDisposable = CompositeDisposable()
@@ -31,20 +28,14 @@ fun dispose(subscription: Disposable?) {
     if (subscription != null && !subscription.isDisposed) subscription.dispose()
 }
 
-/*inline infix fun <T> Any.deferObservable(crossinline start: () -> Observable<T>): Observable<T> = Observable.defer { start() }
-
-inline infix fun <T> Any.deferFlowable(crossinline start: () -> Flowable<T>): Flowable<T> = Flowable.defer { start() }
-
-inline infix fun <T> Any.deferSingle(crossinline start: () -> Single<T>): Single<T> = Single.defer { start() }
-
-inline infix fun Any.deferCompletable(crossinline start: () -> Completable): Completable = Completable.defer { start() }*/
-
 // region DO ON BACKGROUND
 fun <T> Observable<T>.subscribeOnBackground() = subscribeOn(Schedulers.io())
 
 fun <T> Flowable<T>.subscribeOnBackground() = subscribeOn(Schedulers.io())
 
 fun <T> Single<T>.subscribeOnBackground() = subscribeOn(Schedulers.io())
+
+fun <T> Maybe<T>.subscribeOnBackground() = subscribeOn(Schedulers.io())
 
 fun Completable.subscribeOnBackground() = subscribeOn(Schedulers.io())
 // endregion DO ON BACKGROUND
@@ -56,6 +47,8 @@ fun <T> Flowable<T>.subscribeOnMain() = subscribeOn(AndroidSchedulers.mainThread
 
 fun <T> Single<T>.subscribeOnMain() = subscribeOn(AndroidSchedulers.mainThread())
 
+fun <T> Maybe<T>.subscribeOnMain() = subscribeOn(AndroidSchedulers.mainThread())
+
 fun Completable.subscribeOnMain() = subscribeOn(AndroidSchedulers.mainThread())
 // endregion DO ON BACKGROUND
 
@@ -66,6 +59,8 @@ fun <T> Flowable<T>.observeOnBackground() = observeOn(Schedulers.io())
 
 fun <T> Single<T>.observeOnBackground() = observeOn(Schedulers.io())
 
+fun <T> Maybe<T>.observeOnBackground() = observeOn(Schedulers.io())
+
 fun Completable.observeOnBackground() = observeOn(Schedulers.io())
 // endregion DO ON BACKGROUND
 
@@ -75,6 +70,8 @@ fun <T> Observable<T>.observeOnMain() = observeOn(AndroidSchedulers.mainThread()
 fun <T> Flowable<T>.observeOnMain() = observeOn(AndroidSchedulers.mainThread())
 
 fun <T> Single<T>.observeOnMain() = observeOn(AndroidSchedulers.mainThread())
+
+fun <T> Maybe<T>.observeOnMain() = observeOn(AndroidSchedulers.mainThread())
 
 fun Completable.observeOnMain() = observeOn(AndroidSchedulers.mainThread())
 // endregion DO ON MAIN
@@ -112,6 +109,17 @@ fun <T> Single<T>.execute(
     return this
 }
 
+fun <T> Maybe<T>.execute(
+    onComplete: ((T) -> Unit)? = null,
+    onSuccess: (() -> Unit)? = null,
+    onError: ((Throwable) -> Unit)? = null
+): Maybe<T> {
+    val observer = BaseMaybeObserver(onComplete, onSuccess, onError)
+    compositeDisposable.add(observer)
+    subscribe(observer)
+    return this
+}
+
 fun Completable.execute(
     onComplete: (() -> Unit)? = null,
     onError: ((Throwable) -> Unit)? = null
@@ -132,6 +140,10 @@ fun <T> Flowable<T>.composeIf(condition: Boolean, transformer: FlowableTransform
     else this
 
 fun <T> Single<T>.composeIf(condition: Boolean, transformer: SingleTransformer<T, T>): Single<T> =
+    if (condition) compose(transformer)
+    else this
+
+fun <T> Maybe<T>.composeIf(condition: Boolean, transformer: MaybeTransformer<T, T>): Maybe<T> =
     if (condition) compose(transformer)
     else this
 

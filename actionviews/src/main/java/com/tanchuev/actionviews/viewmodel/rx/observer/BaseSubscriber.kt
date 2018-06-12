@@ -11,8 +11,11 @@ import io.reactivex.subscribers.DisposableSubscriber
 class BaseSubscriber<T> : DisposableSubscriber<T> {
 
     var onNext: Consumer<in T>? = null
+        private set
     var onComplete: Action? = null
+        private set
     var onError: Consumer<Throwable>? = null
+        private set
 
     constructor(onNext: Consumer<in T>? = null, onComplete: Action? = null, onError: Consumer<Throwable>? = null) {
         this.onNext = onNext

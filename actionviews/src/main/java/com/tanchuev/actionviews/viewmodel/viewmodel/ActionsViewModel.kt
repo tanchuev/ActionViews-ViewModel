@@ -2,7 +2,6 @@ package com.tanchuev.actionviews.viewmodel.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.tanchuev.actionviews.viewmodel.utils.ErrorMessage
 
 abstract class ActionsViewModel : ViewModel() {
     val contentVisibility = MutableLiveData<Boolean>() // todo remove contentVisibility if not needed
@@ -10,5 +9,5 @@ abstract class ActionsViewModel : ViewModel() {
     val noInternetVisibility = MutableLiveData<Boolean>()
     val emptyContentVisibility = MutableLiveData<Boolean>()
     val isContentEmpty = MutableLiveData<Boolean>()
-    val errorMessage = MutableLiveData<ErrorMessage>()
+    val error = MutableLiveData<Throwable>()
 }

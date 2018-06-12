@@ -3,7 +3,7 @@ package com.tanchuev.actionviews.viewmodel.utils
 import kotlin.reflect.KProperty
 
 /**
- * Created by marat.taychinov
+ * Created by tanchuev
  */
 
 fun <T> mutableLazy(initializer: () -> T) = Delegate(lazy(initializer))

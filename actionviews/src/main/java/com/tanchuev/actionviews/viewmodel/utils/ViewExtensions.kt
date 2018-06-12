@@ -105,14 +105,12 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false):
 fun ImageView.setImage(url: String?) {
     Glide.with(context)
             .load(url)
-            //.error(getDrawable(itemView.context, R.drawable.d_placeholder))
             .into(this)
 }
 
 fun ImageView.setImage(@IdRes imageId: Int?) {
     Glide.with(context)
             .load(imageId)
-            //.error(getDrawable(itemView.context, R.drawable.d_placeholder))
             .into(this)
 }
 
@@ -127,7 +125,3 @@ fun <V : View> Fragment.findViewByIdNullable(@IdRes id: Int): V? {
 fun <V : View> Fragment.findViewById(@IdRes id: Int): V {
     return requireActivity().findViewById(id)
 }
-
-// region FOR CURRENT APP
-
-// endregion FOR CURRENT APP

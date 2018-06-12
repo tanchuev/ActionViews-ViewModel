@@ -3,8 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
 
-
-
     defaultConfig {
         applicationId "com.tanchuev.actionviews.viewmodel.example"
         minSdkVersion 19
@@ -26,7 +24,22 @@ android {
 }
 
 dependencies {
+    implementation project(':actionviews')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
+    implementation "com.android.support:appcompat-v7:$supportLibrary"
+    implementation "com.android.support:design:$supportLibrary"
+
+    implementation "android.arch.lifecycle:extensions:$architectureComponents"
+
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid"
+
+    implementation "com.squareup.picasso:picasso:$picasso"
+    implementation "com.github.bumptech.glide:glide:$glide"
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'

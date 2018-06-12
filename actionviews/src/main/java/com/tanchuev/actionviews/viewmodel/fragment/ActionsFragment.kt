@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
 import com.tanchuev.actionviews.viewmodel.R
-import com.tanchuev.actionviews.viewmodel.utils.ErrorMessage
 import com.tanchuev.actionviews.viewmodel.utils.findViewById
 import com.tanchuev.actionviews.viewmodel.utils.findViewByIdNullable
 import com.tanchuev.actionviews.viewmodel.utils.mutableLazy
@@ -44,7 +43,7 @@ abstract class ActionsFragment : Fragment() {
                 if (noInternetActionView != null) {
                     noInternetActionView!!.setVisibility(it, contentActionView)
                 } else {
-                    errorActionView.showMessage(ErrorMessage(R.string.errorNoInternet))
+                    errorActionView.showError(R.string.errorNoInternet)
                 }
             } else {
                 noInternetActionView?.setVisibility(it, contentActionView)
@@ -55,7 +54,7 @@ abstract class ActionsFragment : Fragment() {
                 if (emptyContentActionView != null) {
                     emptyContentActionView!!.setVisibility(it, contentActionView)
                 } else {
-                    errorActionView.showMessage(ErrorMessage(R.string.errorEmptyContent))
+                    errorActionView.showError(R.string.errorEmptyContent)
                 }
             } else {
                 emptyContentActionView?.setVisibility(it, contentActionView)
@@ -64,8 +63,8 @@ abstract class ActionsFragment : Fragment() {
         viewModel.isContentEmpty.observe(this, Observer {
             emptyContentActionView?.isContentEmpty = it!!
         })
-        viewModel.errorMessage.observe(this, Observer {
-            errorActionView.showMessage(it!!)
+        viewModel.error.observe(this, Observer {
+            errorActionView.showError(it!!)
         })
     }
 }

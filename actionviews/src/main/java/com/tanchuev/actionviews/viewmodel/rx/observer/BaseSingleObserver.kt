@@ -10,7 +10,9 @@ import io.reactivex.observers.DisposableSingleObserver
 class BaseSingleObserver<T> : DisposableSingleObserver<T> {
 
     var onSuccess: Consumer<in T>? = null
+        private set
     var onError: Consumer<Throwable>? = null
+        private set
 
     constructor(onSuccess: Consumer<in T>) {
         this.onSuccess = onSuccess

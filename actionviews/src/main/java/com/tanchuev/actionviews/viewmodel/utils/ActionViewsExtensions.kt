@@ -11,7 +11,7 @@ import java.net.UnknownHostException
 import java.util.*
 
 /**
- * Created by marat.taychinov
+ * Created by tanchuev
  */
 
 val NETWORK_EXCEPTIONS = listOf(
@@ -24,7 +24,7 @@ val NETWORK_EXCEPTIONS = listOf(
 fun <T> Observable<T>.withActionViews(
     viewModel: ActionsViewModel,
     loadingVisibility: MutableLiveData<Boolean> = viewModel.loadingVisibility,
-    errorMessage: MutableLiveData<ErrorMessage> = viewModel.errorMessage,
+    error: MutableLiveData<Throwable> = viewModel.error,
     noInternetVisibility: MutableLiveData<Boolean> = viewModel.noInternetVisibility,
     emptyContentVisibility: MutableLiveData<Boolean> = viewModel.emptyContentVisibility,
     doOnLoadStart: () -> Unit = { doOnLoadSubscribe(loadingVisibility) },
@@ -33,12 +33,13 @@ fun <T> Observable<T>.withActionViews(
     doOnNoInternet: (Throwable) -> Unit = { doOnNoInternet(noInternetVisibility) },
     doOnStartEmptyContent: () -> Unit = { doOnEmptyContentSubscribe(emptyContentVisibility) },
     doOnEmptyContent: () -> Unit = { doOnEmptyContent(emptyContentVisibility) },
-    doOnError: (Throwable) -> Unit = { doOnError(errorMessage, it, doOnNoInternet, doOnEmptyContent) }
+    doOnError: (Throwable) -> Unit = { doOnError(error, it) }
 ) =
     subscribeOnBackground()
         .observeOnMain()
         .withErrorView(
             doOnStartNoInternet,
+            doOnNoInternet,
             doOnStartEmptyContent,
             doOnEmptyContent,
             doOnError
@@ -47,7 +48,7 @@ fun <T> Observable<T>.withActionViews(
 fun <T> Flowable<T>.withActionViews(
     viewModel: ActionsViewModel,
     loadingVisibility: MutableLiveData<Boolean> = viewModel.loadingVisibility,
-    errorMessage: MutableLiveData<ErrorMessage> = viewModel.errorMessage,
+    error: MutableLiveData<Throwable> = viewModel.error,
     noInternetVisibility: MutableLiveData<Boolean> = viewModel.noInternetVisibility,
     emptyContentVisibility: MutableLiveData<Boolean> = viewModel.emptyContentVisibility,
     doOnLoadStart: () -> Unit = { doOnLoadSubscribe(loadingVisibility) },
@@ -56,11 +57,12 @@ fun <T> Flowable<T>.withActionViews(
     doOnNoInternet: (Throwable) -> Unit = { doOnNoInternet(noInternetVisibility) },
     doOnStartEmptyContent: () -> Unit = { doOnEmptyContentSubscribe(emptyContentVisibility) },
     doOnEmptyContent: () -> Unit = { doOnEmptyContent(emptyContentVisibility) },
-    doOnError: (Throwable) -> Unit = { doOnError(errorMessage, it, doOnNoInternet, doOnEmptyContent) }
+    doOnError: (Throwable) -> Unit = { doOnError(error, it) }
 ) = subscribeOnBackground()
     .observeOnMain()
     .withErrorView(
         doOnStartNoInternet,
+        doOnNoInternet,
         doOnStartEmptyContent,
         doOnEmptyContent,
         doOnError
@@ -69,7 +71,7 @@ fun <T> Flowable<T>.withActionViews(
 fun <T> Single<T>.withActionViews(
     viewModel: ActionsViewModel,
     loadingVisibility: MutableLiveData<Boolean> = viewModel.loadingVisibility,
-    errorMessage: MutableLiveData<ErrorMessage> = viewModel.errorMessage,
+    error: MutableLiveData<Throwable> = viewModel.error,
     noInternetVisibility: MutableLiveData<Boolean> = viewModel.noInternetVisibility,
     emptyContentVisibility: MutableLiveData<Boolean> = viewModel.emptyContentVisibility,
     doOnLoadStart: () -> Unit = { doOnLoadSubscribe(loadingVisibility) },
@@ -78,19 +80,44 @@ fun <T> Single<T>.withActionViews(
     doOnNoInternet: (Throwable) -> Unit = { doOnNoInternet(noInternetVisibility) },
     doOnStartEmptyContent: () -> Unit = { doOnEmptyContentSubscribe(emptyContentVisibility) },
     doOnEmptyContent: () -> Unit = { doOnEmptyContent(emptyContentVisibility) },
-    doOnError: (Throwable) -> Unit = { doOnError(errorMessage, it, doOnNoInternet, doOnEmptyContent) }
+    doOnError: (Throwable) -> Unit = { doOnError(error, it) }
 ) = subscribeOnBackground()
     .observeOnMain()
     .withErrorView(
         doOnStartNoInternet,
+        doOnNoInternet,
         doOnStartEmptyContent,
+        doOnEmptyContent,
+        doOnError
+    ).withLoadingView(doOnLoadStart, doOnLoadEnd)
+
+fun <T> Maybe<T>.withActionViews(
+    viewModel: ActionsViewModel,
+    loadingVisibility: MutableLiveData<Boolean> = viewModel.loadingVisibility,
+    error: MutableLiveData<Throwable> = viewModel.error,
+    noInternetVisibility: MutableLiveData<Boolean> = viewModel.noInternetVisibility,
+    emptyContentVisibility: MutableLiveData<Boolean> = viewModel.emptyContentVisibility,
+    doOnLoadStart: () -> Unit = { doOnLoadSubscribe(loadingVisibility) },
+    doOnLoadEnd: () -> Unit = { doOnLoadComplete(loadingVisibility) },
+    doOnStartNoInternet: () -> Unit = { doOnNoInternetSubscribe(noInternetVisibility) },
+    doOnNoInternet: (Throwable) -> Unit = { doOnNoInternet(noInternetVisibility) },
+    doOnStartEmptyContent: () -> Unit = { doOnEmptyContentSubscribe(emptyContentVisibility) },
+    doOnEmptyContent: () -> Unit = { doOnEmptyContent(emptyContentVisibility) },
+    doOnError: (Throwable) -> Unit = { doOnError(error, it) }
+) = subscribeOnBackground()
+    .observeOnMain()
+    .withErrorView(
+        doOnStartNoInternet,
+        doOnNoInternet,
+        doOnStartEmptyContent,
+        doOnEmptyContent,
         doOnError
     ).withLoadingView(doOnLoadStart, doOnLoadEnd)
 
 fun Completable.withActionViews(
     viewModel: ActionsViewModel,
     loadingVisibility: MutableLiveData<Boolean> = viewModel.loadingVisibility,
-    errorMessage: MutableLiveData<ErrorMessage> = viewModel.errorMessage,
+    error: MutableLiveData<Throwable> = viewModel.error,
     noInternetVisibility: MutableLiveData<Boolean> = viewModel.noInternetVisibility,
     emptyContentVisibility: MutableLiveData<Boolean> = viewModel.emptyContentVisibility,
     doOnLoadStart: () -> Unit = { doOnLoadSubscribe(loadingVisibility) },
@@ -99,12 +126,14 @@ fun Completable.withActionViews(
     doOnNoInternet: (Throwable) -> Unit = { doOnNoInternet(noInternetVisibility) },
     doOnStartEmptyContent: () -> Unit = { doOnEmptyContentSubscribe(emptyContentVisibility) },
     doOnEmptyContent: () -> Unit = { doOnEmptyContent(emptyContentVisibility) },
-    doOnError: (Throwable) -> Unit = { doOnError(errorMessage, it, doOnNoInternet, doOnEmptyContent) }
+    doOnError: (Throwable) -> Unit = { doOnError(error, it) }
 ) = subscribeOnBackground()
     .observeOnMain()
     .withErrorView(
         doOnStartNoInternet,
+        doOnNoInternet,
         doOnStartEmptyContent,
+        doOnEmptyContent,
         doOnError
     ).withLoadingView(doOnLoadStart, doOnLoadEnd)
 // endregion WITH DO ON ACTIONS
@@ -131,6 +160,13 @@ fun <T> Single<T>.withLoadingView(
     doOnSubscribe { doOnLoadStart() }
         .doFinally { doOnLoadEnd() }
 
+fun <T> Maybe<T>.withLoadingView(
+    doOnLoadStart: () -> Unit,
+    doOnLoadEnd: () -> Unit
+): Maybe<T> =
+    doOnSubscribe { doOnLoadStart() }
+        .doFinally { doOnLoadEnd() }
+
 fun Completable.withLoadingView(
     doOnLoadStart: () -> Unit,
     doOnLoadEnd: () -> Unit
@@ -150,6 +186,7 @@ private fun doOnLoadComplete(loadingVisibility: MutableLiveData<Boolean>) {
 // region DO ON ERROR
 fun <T> Observable<T>.withErrorView(
     doOnStartNoInternet: () -> Unit,
+    doOnNoInternet: (Throwable) -> Unit,
     doOnStartEmptyContent: () -> Unit,
     doOnEmptyContent: () -> Unit,
     doOnError: (Throwable) -> Unit
@@ -161,10 +198,21 @@ fun <T> Observable<T>.withErrorView(
         if (it.isNullOrEmpty()) {
             emptyObservable(doOnEmptyContent)
         } else this
-    }.doOnError { doOnError(it) }
+    }.doOnError {
+        when {
+            it::class in NETWORK_EXCEPTIONS -> {
+                doOnNoInternet(it)
+            }
+            it is NoSuchElementException -> {
+                doOnEmptyContent()
+            }
+            else -> doOnError(it)
+        }
+    }
 
 fun <T> Flowable<T>.withErrorView(
     doOnStartNoInternet: () -> Unit,
+    doOnNoInternet: (Throwable) -> Unit,
     doOnStartEmptyContent: () -> Unit,
     doOnEmptyContent: () -> Unit,
     doOnError: (Throwable) -> Unit
@@ -176,18 +224,68 @@ fun <T> Flowable<T>.withErrorView(
         if (it.isNullOrEmpty()) {
             emptyFlowable(doOnEmptyContent)
         } else this
-    }.doOnError { doOnError(it) }
+    }.doOnError {
+        when {
+            it::class in NETWORK_EXCEPTIONS -> {
+                doOnNoInternet(it)
+            }
+            it is NoSuchElementException -> {
+                doOnEmptyContent()
+            }
+            else -> doOnError(it)
+        }
+    }
 
 fun <T> Single<T>.withErrorView(
     doOnStartNoInternet: () -> Unit,
+    doOnNoInternet: (Throwable) -> Unit,
     doOnStartEmptyContent: () -> Unit,
+    doOnEmptyContent: () -> Unit,
     doOnError: (Throwable) -> Unit
 ): Single<T> =
     doOnSubscribe {
         doOnStartNoInternet()
         doOnStartEmptyContent()
     }
-        .doOnError { doOnError(it) }
+        .doOnError {
+            when {
+                it::class in NETWORK_EXCEPTIONS -> {
+                    doOnNoInternet(it)
+                }
+                it is NoSuchElementException -> {
+                    doOnEmptyContent()
+                }
+                else -> doOnError(it)
+            }
+        }
+        .flatMap {
+            if (it.isNullOrEmpty()) {
+                throw NoSuchElementException()
+            } else this
+        }
+
+fun <T> Maybe<T>.withErrorView(
+    doOnStartNoInternet: () -> Unit,
+    doOnNoInternet: (Throwable) -> Unit,
+    doOnStartEmptyContent: () -> Unit,
+    doOnEmptyContent: () -> Unit,
+    doOnError: (Throwable) -> Unit
+): Maybe<T> =
+    doOnSubscribe {
+        doOnStartNoInternet()
+        doOnStartEmptyContent()
+    }
+        .doOnError {
+            when {
+                it::class in NETWORK_EXCEPTIONS -> {
+                    doOnNoInternet(it)
+                }
+                it is NoSuchElementException -> {
+                    doOnEmptyContent()
+                }
+                else -> doOnError(it)
+            }
+        }
         .flatMap {
             if (it.isNullOrEmpty()) {
                 throw NoSuchElementException()
@@ -196,54 +294,31 @@ fun <T> Single<T>.withErrorView(
 
 fun Completable.withErrorView(
     doOnStartNoInternet: () -> Unit,
+    doOnNoInternet: (Throwable) -> Unit,
     doOnStartEmptyContent: () -> Unit,
+    doOnEmptyContent: () -> Unit,
     doOnError: (Throwable) -> Unit
 ): Completable =
     doOnSubscribe {
         doOnStartNoInternet()
         doOnStartEmptyContent()
-    }.doOnError { doOnError(it) }
+    }.doOnError {
+        when {
+            it::class in NETWORK_EXCEPTIONS -> {
+                doOnNoInternet(it)
+            }
+            it is NoSuchElementException -> {
+                doOnEmptyContent()
+            }
+            else -> doOnError(it)
+        }
+    }
 
 private fun doOnError(
-    errorMessage: MutableLiveData<ErrorMessage>,
-    t: Throwable,
-    doOnNoInternet: (Throwable) -> Unit,
-    doOnEmptyContent: () -> Unit
+    error: MutableLiveData<Throwable>,
+    t: Throwable
 ) {
-    when {
-        t::class in NETWORK_EXCEPTIONS -> {
-            doOnNoInternet(t)
-        }
-        t is NoSuchElementException -> {
-            doOnEmptyContent()
-        }
-        else -> handleError(errorMessage, t)
-    }
-}
-
-private fun handleError(errorMessage: MutableLiveData<ErrorMessage>, e: Throwable) {
-    //todo add InternalAppException class for Internal Application errors and add .showError(internalAppException.getMessage())
-    /*if (e instanceof HttpException) {
-        final HttpException httpException = (HttpException) e;
-        if (httpException.code() == 401) {
-            final Context context = AndroidApplication.getAppContext();
-            AuthUtils.logout(context, DataManager.get());
-            AuthUtils.openLoginActivity(context);
-        } else {
-            try {
-                final String errorBody = httpException.response().errorBody().string();
-                final ErrorBean errorBean = GsonUtil.requestGson().fromJson(errorBody, ErrorBean.class);
-                view.showError(errorBean.getFirstErrorMessage());
-            } catch (IOException | IllegalStateException e1) {
-                view.showError(httpException.message());
-            }
-        }
-    } else */
-    errorMessage.value =
-            ErrorMessage(
-                if (e.message.isNullOrEmpty()) R.string.errorUnexpected else null,
-                e.message
-            )
+    error.value = t
 }
 // endregion DO ON ERROR
 
