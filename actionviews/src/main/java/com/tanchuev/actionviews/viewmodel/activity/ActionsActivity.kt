@@ -25,7 +25,7 @@ abstract class ActionsActivity : AppCompatActivity() {
     var loadingActionView: LoadingView? by mutableLazy { findViewByIdNullable<View>(R.id.loadingView) as LoadingView? }
     var noInternetActionView: NoInternetView? by mutableLazy { findViewByIdNullable<View>(R.id.noInternetView) as NoInternetView? }
     var emptyContentActionView: EmptyContentView? by mutableLazy { findViewByIdNullable<View>(R.id.emptyContentView) as EmptyContentView? }
-    var errorActionView: ErrorView by mutableLazy { ToastView(this) }
+    open var errorActionView: ErrorView by mutableLazy { ToastView(this) }
 
     override fun onStart() {
         super.onStart()

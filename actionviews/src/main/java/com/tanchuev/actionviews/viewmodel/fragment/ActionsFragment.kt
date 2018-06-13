@@ -26,7 +26,7 @@ abstract class ActionsFragment : Fragment() {
     var loadingActionView: LoadingView? by mutableLazy { findViewByIdNullable<View>(R.id.loadingView) as LoadingView? }
     var noInternetActionView: NoInternetView? by mutableLazy { findViewByIdNullable<View>(R.id.noInternetView) as NoInternetView? }
     var emptyContentActionView: EmptyContentView? by mutableLazy { findViewByIdNullable<View>(R.id.emptyContentView) as EmptyContentView? }
-    var errorActionView: ErrorView by mutableLazy { ToastView(requireActivity()) }
+    open var errorActionView: ErrorView by mutableLazy { ToastView(requireActivity()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
