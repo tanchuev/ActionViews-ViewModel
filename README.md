@@ -137,7 +137,7 @@ dataRepository.getAll()
 ## FAQ
 ### Мне надоело каждый раз добавлять одну и ту же реализацию NoInternetView/EmptyContentView/... в layout. Что делать?
 [Удобный способ добавления ActionView в layout](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%A3%D0%B4%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-ActionView-%D0%B2-layout)
-### Я использую [kotlin-android-extensions] и у меня показывается **такая ошибка**, что делать?
+### Я использую [kotlin-android-extensions] и у меня показывает ошибку исмпорта view, что делать?
 Если вы используете реализации ActionViews, которые содержатся в библиотеке, то просто используйте ActionView отсюда: Если у вас две и более ActionView одинакового типа на экране, то используйте вспомогательный метод для инициализации View, который я сделал для вас: 
 ### Что делать, если у меня несколько ActionView одинакового типа на одном экране? 
 [Использование нескольких ActionView одинакового типа на одном экране](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-ActionView-%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D1%82%D0%B8%D0%BF%D0%B0-%D0%BD%D0%B0-%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B5)
