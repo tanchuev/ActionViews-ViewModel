@@ -32,7 +32,7 @@
 
 ## Как пользоваться?
 Чтобы начать использовать библиотеку вам достаточно сделать несколько шагов:
-* Добавить dependency в gradle: ```implementation `ссылка на зависимость в репозитории` ```
+* Добавить dependency в gradle: ```implementation 'com.github.tanchuev:actionviews-viewmodel:0.7.0'```
 * Унаследовать ваши Activity/Fragment от [ActionsActivity]/[ActionsFragment]:  
 `abstract class BaseActivity : ActionsActivity()`  
 `abstract class BaseFragment : ActionsFragment()`  
