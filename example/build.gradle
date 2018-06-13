@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-    implementation project(':actionviews')
+    //implementation project(':actionviews')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
@@ -42,6 +42,8 @@ dependencies {
 
     implementation "com.squareup.picasso:picasso:$picasso"
     implementation "com.github.bumptech.glide:glide:$glide"
+
+    implementation 'com.github.tanchuev:actionviews-viewmodel:0.7.0'
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'

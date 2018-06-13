@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.l_placeholder_view.view.*
 import com.tanchuev.actionviews.viewmodel.R
+import com.tanchuev.actionviews.viewmodel.R.id.placeholderViewText
 import com.tanchuev.actionviews.viewmodel.utils.getAppCompatDrawable
 import com.tanchuev.actionviews.viewmodel.utils.setVisibility
 
@@ -52,23 +53,24 @@ open class SimplePlaceholderView(context: Context, attrs: AttributeSet) : Linear
         placeholderViewButton.setOnClickListener(buttonClickListener)
     }
 
-    fun bindView(@DrawableRes icon: Int, @StringRes text: Int, @StringRes buttonText: Int, buttonClickListener: View.OnClickListener) {
-        placeholderViewIcon.setImageResource(icon)
-        placeholderViewText.setText(text)
-        setVisibility(View.VISIBLE, placeholderViewButton)
-        placeholderViewButton.setText(buttonText)
-        placeholderViewButton.setOnClickListener(buttonClickListener)
-    }
-
-    fun bindView(@DrawableRes icon: Int, @StringRes text: Int) {
-        placeholderViewIcon.setImageResource(icon)
-        placeholderViewText.setText(text)
-        setVisibility(View.GONE, placeholderViewButton)
-    }
-
-    fun bindView(@StringRes text: Int) {
-        placeholderViewText.setText(text)
-        setVisibility(View.GONE, placeholderViewIcon)
-        setVisibility(View.GONE, placeholderViewButton)
+    fun bindView(@DrawableRes icon: Int? = null,
+                 @StringRes text: Int? = null,
+                 @StringRes buttonText: Int? = null,
+                 buttonClickListener: View.OnClickListener? = null) {
+        if (icon != null) {
+            placeholderViewIcon.setImageResource(icon)
+        }
+        if (text != null) {
+            placeholderViewText.setText(text)
+        }
+        if (buttonText != null) {
+            placeholderViewButton.setText(buttonText)
+            placeholderViewButton.visibility = View.VISIBLE
+        } else {
+            placeholderViewButton.visibility = View.GONE
+        }
+        if (buttonClickListener != null) {
+            placeholderViewButton.setOnClickListener(buttonClickListener)
+        }
     }
 }
