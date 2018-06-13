@@ -12,7 +12,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
-        versionName "0.9.0"
+        versionName "0.7.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -26,6 +26,7 @@ android {
 
 publish {
     groupId = 'com.github.tanchuev'
+    repoName = 'Maven'
     artifactId = 'actionviews-viewmodel'
     publishVersion = '0.7.0'
     desc = 'Library for exclude boilerplate code if you use some of this View types: LoadingView, NoInternetView, EmptyContentView, ErrorView'
@@ -50,4 +51,8 @@ dependencies {
 
     implementation "com.squareup.picasso:picasso:$picasso"
     implementation "com.github.bumptech.glide:glide:$glide"
+}
+
+tasks.withType(Javadoc).all {
+    enabled = false
 }
