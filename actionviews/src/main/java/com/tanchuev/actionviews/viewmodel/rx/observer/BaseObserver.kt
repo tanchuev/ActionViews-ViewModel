@@ -10,36 +10,9 @@ import io.reactivex.observers.DisposableObserver
  */
 class BaseObserver<T> : DisposableObserver<T> {
 
-    var onNext: Consumer<in T>? = null
-        private set
-    var onError: Consumer<Throwable>? = null
-        private set
-    var onComplete: Action? = null
-        private set
-
-    constructor(onNext: Consumer<in T>) {
-        this.onNext = onNext
-    }
-
-    constructor(onComplete: Action) {
-        this.onComplete = onComplete
-    }
-
-    constructor(onNext: Consumer<in T>, onComplete: Action) {
-        this.onNext = onNext
-        this.onComplete = onComplete
-    }
-
-    constructor(onNext: Consumer<in T>, onError: Consumer<Throwable>) {
-        this.onNext = onNext
-        this.onError = onError
-    }
-
-    constructor(onNext: Consumer<in T>?, onError: Consumer<Throwable>?, onComplete: Action?) {
-        this.onNext = onNext
-        this.onError = onError
-        this.onComplete = onComplete
-    }
+    private var onNext: Consumer<in T>? = null
+    private var onError: Consumer<Throwable>? = null
+    private var onComplete: Action? = null
 
     constructor(onNext: ((T) -> Unit)? = null, onComplete: (() -> Unit)? = null, onError: ((Throwable) -> Unit)? = null) {
         if (onNext != null) {

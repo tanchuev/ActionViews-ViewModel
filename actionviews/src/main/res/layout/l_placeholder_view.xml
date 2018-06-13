@@ -11,6 +11,7 @@
         android:id="@+id/placeholderViewIcon"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:contentDescription="@string/placeholderViewIcon"
         app:srcCompat="@drawable/ic_warning" />
 
     <TextView

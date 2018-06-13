@@ -4,28 +4,15 @@ package com.tanchuev.actionviews.viewmodel.rx.observer
 import io.reactivex.functions.Action
 import io.reactivex.functions.Consumer
 import io.reactivex.observers.DisposableMaybeObserver
-import io.reactivex.observers.DisposableSingleObserver
 
 /**
  * @author tanchuev
  */
 class BaseMaybeObserver<T> : DisposableMaybeObserver<T> {
 
-    var onSuccess: Consumer<in T>? = null
-        private set
-    var onComplete: Action? = null
-        private set
-    var onError: Consumer<Throwable>? = null
-        private set
-
-    constructor(onSuccess: Consumer<in T>) {
-        this.onSuccess = onSuccess
-    }
-
-    constructor(onSuccess: Consumer<in T>?, onError: Consumer<Throwable>?) {
-        this.onSuccess = onSuccess
-        this.onError = onError
-    }
+    private var onSuccess: Consumer<in T>? = null
+    private var onComplete: Action? = null
+    private var onError: Consumer<Throwable>? = null
 
     constructor(onSuccess: ((T) -> Unit)? = null, onComplete: (() -> Unit)? = null, onError: ((Throwable) -> Unit)? = null) {
         if (onSuccess != null) {

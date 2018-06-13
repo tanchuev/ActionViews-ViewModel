@@ -1,5 +1,6 @@
 package com.tanchuev.actionviews.viewmodel.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
@@ -7,10 +8,7 @@ import android.content.res.Resources
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.support.annotation.IdRes
-import android.support.annotation.IntDef
-import android.support.annotation.LayoutRes
-import android.support.annotation.StringRes
+import android.support.annotation.*
 import android.support.v4.app.Fragment
 import android.support.v7.content.res.AppCompatResources
 import android.util.TypedValue
@@ -108,7 +106,7 @@ fun ImageView.setImage(url: String?) {
             .into(this)
 }
 
-fun ImageView.setImage(@IdRes imageId: Int?) {
+fun ImageView.setImage(@RawRes @DrawableRes imageId: Int?) {
     Glide.with(context)
             .load(imageId)
             .into(this)

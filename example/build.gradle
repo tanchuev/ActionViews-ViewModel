@@ -4,6 +4,8 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+
         applicationId "com.tanchuev.actionviews.viewmodel.example"
         minSdkVersion 19
         targetSdkVersion 27

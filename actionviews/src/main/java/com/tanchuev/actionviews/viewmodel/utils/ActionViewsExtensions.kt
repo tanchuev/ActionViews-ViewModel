@@ -1,10 +1,9 @@
 package com.tanchuev.actionviews.viewmodel.utils
 
 import android.arch.lifecycle.MutableLiveData
+import com.tanchuev.actionviews.viewmodel.viewmodel.ActionsViewModel
 import io.reactivex.*
 import io.reactivex.Observable
-import com.tanchuev.actionviews.viewmodel.R
-import com.tanchuev.actionviews.viewmodel.viewmodel.ActionsViewModel
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException

@@ -10,19 +10,8 @@ import io.reactivex.observers.DisposableCompletableObserver
  */
 class BaseCompletableObserver : DisposableCompletableObserver {
 
-    var onComplete: Action? = null
-        private set
-    var onError: Consumer<Throwable>? = null
-        private set
-
-    constructor(onComplete: Action) {
-        this.onComplete = onComplete
-    }
-
-    constructor(onComplete: Action?, onError: Consumer<Throwable>?) {
-        this.onComplete = onComplete
-        this.onError = onError
-    }
+    private var onComplete: Action? = null
+    private var onError: Consumer<Throwable>? = null
 
     constructor(onComplete: (() -> Unit)? = null, onError: ((Throwable) -> Unit)? = null) {
         if (onComplete != null) {

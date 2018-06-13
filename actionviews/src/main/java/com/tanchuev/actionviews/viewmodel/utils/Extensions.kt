@@ -22,7 +22,6 @@ class Delegate<T>(private val lazy: Lazy<T>) {
 
 fun Any?.isNullOrEmpty(): Boolean =
     when (this) {
-    //todo add if(isEmptyResponse)
         null -> true
         is CharSequence -> length == 0
         is Collection<*> -> isEmpty()

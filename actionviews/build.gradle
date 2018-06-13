@@ -1,18 +1,19 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 27
 
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "0.9.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -21,6 +22,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+publish {
+    groupId = 'com.github.tanchuev'
+    artifactId = 'actionviews-viewmodel'
+    publishVersion = '0.7.0'
+    desc = 'Library for exclude boilerplate code if you use some of this View types: LoadingView, NoInternetView, EmptyContentView, ErrorView'
+    licences = ['MIT']
+    website = 'https://github.com/tanchuev/ActionViews-ViewModel'
+    userOrg = 'tanchuev'
 }
 
 dependencies {
