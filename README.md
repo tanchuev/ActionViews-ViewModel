@@ -19,9 +19,9 @@
 * Отсутствия данных - [EmptyContentView]  
 * Ошибок - [ErrorView]  
 
-Если ваше приложение использует MVP - то есть (ActionViews-MVP)[https://github.com/tanchuev/ActionViews-MVP]  
-Если ваше приложение использует kotlin-couroutines и MVVM - то есть (ActionViews-ViewModel-Coroutines)[ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины]  
-Если ваше приложение использует kotlin-couroutines и MVP - то есть (ActionViews-MVP-Coroutines)[ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины]  
+Если ваше приложение использует MVP - то есть [ActionViews-MVP](https://github.com/tanchuev/ActionViews-MVP)  
+Если ваше приложение использует kotlin-couroutines и MVVM - то есть [ActionViews-ViewModel-Coroutines](ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины)  
+Если ваше приложение использует kotlin-couroutines и MVP - то есть [ActionViews-MVP-Coroutines](ссылка на будущую библиотеку, если я придумаю как внедрить этот механизм в корутины)  
 
 Все логики отображения и скрытия ActionViews уже написаны за вас, вам остается только пользоваться библиотекой!
 
