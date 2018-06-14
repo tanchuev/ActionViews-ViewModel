@@ -116,7 +116,8 @@ dataRepository.getAll()
 
 ## Другой вариант использования ActionViews
 * Вы можете отказаться от наследования [ActionsActivity]/[ActionsFragment], но все равно вы будете обязаны наследовать вашу ViewModel от [ActionsViewModel]
-* В вашей Activity/Fragment вы должны проинициализировать ваши ActionViews и подписаться на обновления тех ActionView, которые вам нужны, также как это сделано в [ActionsActivity]/[ActionsFragment]
+* В вашей Activity/Fragment вы должны проинициализировать ваши ActionViews
+* Подписаться на обновления тех ActionView, которые вам нужны, также как это сделано в [ActionsActivity]/[ActionsFragment]
 
 **В чем плюсы от использования такого способа?**  
 * Вы избавляетесь от строго заданных id для ActionViews и можете использовать абсолютно любые
@@ -144,7 +145,7 @@ dataRepository.getAll()
 ### Что делать, если мне не подходит базовое поведение и я хочу использовать свое?
 [Кастомное поведение](https://github.com/tanchuev/ActionViews-ViewModel/wiki/%D0%9A%D0%B0%D1%81%D1%82%D0%BE%D0%BC%D0%BD%D0%BE%D0%B5-%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5)
 ### Моя Activity/Fragment/ViewModel наследуется от базового класса, который я не могу изменить. Как добавить наследование от ActionsActivity/ActionsFragment/ActionsViewModel?
-Тогда вы можете просто скопировать код [ActionsActivity] или [ActionsFragment] или [ActionsFragment] и создать необходимый класс руками
+Тогда вы можете просто скопировать код [ActionsActivity] или [ActionsFragment] или [ActionsViewModel] и создать необходимый класс руками
 ### Что делать, если я хочу добавить свой тип ActionView?
 А оно вам надо? Разве данных типов ActionView недостаточно? Если нет, то посмотрите исходные коды на примере [LoadingView], где она используется, как с ней работать и сделайте тоже самое.
 
