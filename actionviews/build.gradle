@@ -12,7 +12,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
-        versionName "0.7.0"
+        versionName "0.7.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -28,7 +28,7 @@ publish {
     groupId = 'com.github.tanchuev'
     repoName = 'Maven'
     artifactId = 'actionviews-viewmodel'
-    publishVersion = '0.7.0'
+    publishVersion = '0.7.1'
     desc = 'Library for exclude boilerplate code if you use some of this View types: LoadingView, NoInternetView, EmptyContentView, ErrorView'
     licences = ['MIT']
     website = 'https://github.com/tanchuev/ActionViews-ViewModel'
