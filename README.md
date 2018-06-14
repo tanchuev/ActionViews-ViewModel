@@ -82,7 +82,7 @@
         app:progressColor="@color/black"
         tools:visibility="visible" />
 
-    <ScrollView
+    <ScrollView <!-- or any other View -->
         android:id="@+id/contentView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
