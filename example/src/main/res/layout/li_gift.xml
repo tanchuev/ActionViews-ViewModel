@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:maxLines="2"
+        android:padding="8dp"
+        android:textSize="20sp"
+        tools:text="Название" />
+
+    <ImageView
+        android:id="@+id/ivGift"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/d_placeholder" />
+
+    <com.tanchuev.actionviews.viewmodel.example.presentation.ui.widget.ButtonVectorSupport
+        android:id="@+id/like"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="6dp"
+        app:drawableCompatLeft="@drawable/ic_like_off"
+        tools:drawableLeft="@drawable/ic_like_off"
+        tools:text="777" />
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ButtonVectorSupport">
+        <attr name="drawableCompatLeft" format="reference"/>
+        <attr name="drawableCompatRight" format="reference"/>
+        <attr name="drawableCompatTop" format="reference"/>
+        <attr name="drawableCompatBottom" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="Background">
+        <attr name="background" format="reference" />
+    </declare-styleable>
+
+</resources>

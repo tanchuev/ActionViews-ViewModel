@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/w_simple_no_internet_view" />
+
+    <include layout="@layout/w_simple_empty_view" />
+
+    <com.tanchuev.actionviews.viewmodel.widget.SwipeRefreshLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/contentView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/li_gift" />
+    </com.tanchuev.actionviews.viewmodel.widget.SwipeRefreshLayout>
+</FrameLayout>

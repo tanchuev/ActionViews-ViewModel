@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">example</string>
+    <string name="app_name">ActionViews</string>
+    <string name="emptyResponse">Empty response</string>
 </resources>
